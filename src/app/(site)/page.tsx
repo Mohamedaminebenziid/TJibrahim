@@ -21,6 +21,7 @@ export default async function HomePage() {
         role={content.hero.role}
         tagline={content.hero.tagline}
         cta={content.hero.cta}
+        videoSrc={content.hero.video_url || "/hero.mp4"}
       />
 
       {/* About preview */}

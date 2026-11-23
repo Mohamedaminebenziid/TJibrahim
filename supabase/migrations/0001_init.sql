@@ -204,7 +204,7 @@ create policy "self read profile" on public.profiles
 -- Seed default content
 -- ============================================================
 insert into public.site_content (key, value) values
-  ('hero', '{"name":"TJ IBRAHIM","role":"Content Creator / Photographer / Video Editor","tagline":"Crafting cinematic stories through light, motion and emotion.","cta":"View work"}'::jsonb),
+  ('hero', '{"name":"TJ IBRAHIM","role":"Content Creator / Photographer / Video Editor","tagline":"Crafting cinematic stories through light, motion and emotion.","cta":"View work","video_url":""}'::jsonb),
   ('about', '{"heading":"About","bio":"I''m a passionate Content Creator, Photographer & Video Editor with 6+ years of professional experience capturing compelling visuals that help brands and individuals tell their story across digital platforms.","specialties":["Photography","Videography","Content Creation","Video Editing"],"stats":[{"label":"Years","value":"6+"},{"label":"Projects","value":"—"},{"label":"Clients","value":"—"}]}'::jsonb),
   ('work', '{"heading":"Selected work","intro":"A curated selection of recent projects across brands, events and personal stories."}'::jsonb),
   ('brands', '{"heading":"Brands & collaborators","intro":"Trusted by teams that care about craft."}'::jsonb),

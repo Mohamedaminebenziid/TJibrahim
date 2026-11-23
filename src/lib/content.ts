@@ -8,6 +8,7 @@ export const DEFAULT_CONTENT = {
     role: "Content Creator / Photographer / Video Editor",
     tagline: "Crafting cinematic stories through light, motion and emotion.",
     cta: "View work",
+    video_url: "",
   },
   about: {
     heading: "About",

@@ -16,6 +16,13 @@ export default async function ContentPage() {
             <Field label="Role" name="role" defaultValue={c.hero.role} />
             <Field label="Tagline" name="tagline" defaultValue={c.hero.tagline} textarea rows={2} />
             <Field label="CTA button text" name="cta" defaultValue={c.hero.cta} />
+            <Field
+              label="Hero video URL"
+              name="video_url"
+              defaultValue={c.hero.video_url}
+              placeholder="Leave empty to use the bundled hero.mp4"
+              hint="Upload a video in Media Library, copy its public URL, and paste it here."
+            />
             <Btn type="submit" variant="solid">Save hero</Btn>
           </form>
         </Section>
