@@ -41,19 +41,19 @@ export default async function ProjectsAdmin() {
       </section>
 
       {items.length === 0 ? (
-        <div className="py-20 text-center text-white/40 text-sm tracking-[0.2em] uppercase border hairline">
+        <div className="py-20 text-center text-black/40 text-sm tracking-[0.2em] uppercase border hairline">
           No projects yet. Create your first one above.
         </div>
       ) : (
         <div className="divide-y divide-white/10 border hairline">
           {items.map((p) => (
             <div key={p.id} className="flex items-center gap-4 p-4">
-              <div className="relative h-14 w-20 shrink-0 bg-neutral-900">
+              <div className="relative h-14 w-20 shrink-0 bg-neutral-100">
                 {p.cover_url && <Image src={p.cover_url} alt={p.title} fill className="object-cover" sizes="80px" />}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-display text-xl truncate">{p.title}</div>
-                <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 truncate">
+                <div className="text-[10px] tracking-[0.25em] uppercase text-black/40 truncate">
                   /{p.slug} {p.categories?.name ? `· ${p.categories.name}` : ""} {p.year ? `· ${p.year}` : ""}
                 </div>
               </div>
@@ -63,9 +63,9 @@ export default async function ProjectsAdmin() {
                   {p.published ? "Published" : "Draft"}
                 </span>
               </div>
-              <Link href={`/admin/projects/${p.id}`} className="text-[11px] tracking-[0.25em] uppercase border hairline px-3 py-2 hover:bg-white hover:text-black">Edit</Link>
+              <Link href={`/admin/projects/${p.id}`} className="text-[11px] tracking-[0.25em] uppercase border hairline px-3 py-2 hover:bg-black hover:text-white">Edit</Link>
               {p.published && (
-                <Link href={`/projects/${p.slug}`} target="_blank" className="text-[11px] tracking-[0.25em] uppercase text-white/60 hover:text-white">View</Link>
+                <Link href={`/projects/${p.slug}`} target="_blank" className="text-[11px] tracking-[0.25em] uppercase text-black/60 hover:text-black">View</Link>
               )}
               <form action={deleteProject}>
                 <input type="hidden" name="id" value={p.id} />

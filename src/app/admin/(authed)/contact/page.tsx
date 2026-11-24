@@ -17,8 +17,8 @@ export default async function ContactSettings() {
         <Field label="WhatsApp number (digits, with country code)" name="whatsapp_number" defaultValue={contact.whatsapp_number} placeholder="e.g. 212600112233" hint="No +, spaces or dashes." />
         <Field label="WhatsApp prefilled message" name="whatsapp_message" defaultValue={contact.whatsapp_message} textarea rows={2} />
         {preview && (
-          <div className="text-[11px] text-white/50 break-all">
-            Preview: <a href={preview} className="underline hover:text-white" target="_blank" rel="noopener noreferrer">{preview}</a>
+          <div className="text-[11px] text-black/50 break-all">
+            Preview: <a href={preview} className="underline hover:text-black" target="_blank" rel="noopener noreferrer">{preview}</a>
           </div>
         )}
         <Btn type="submit" variant="solid">Save contact</Btn>

@@ -42,15 +42,15 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         {heroImg ? (
           <Image src={heroImg} alt={project.title} fill priority className="object-cover grayscale-[10%]" sizes="100vw" />
         ) : (
-          <div className="h-full w-full bg-neutral-900" />
+          <div className="h-full w-full bg-neutral-100" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/40" />
-        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-10 pb-16 max-w-[1600px] mx-auto">
-          <Link href="/work" className="text-[11px] tracking-[0.3em] uppercase text-white/60 hover:text-white mb-6">← Back</Link>
-          <div className="text-[11px] tracking-[0.3em] uppercase text-white/70 mb-3">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-10 pb-12 md:pb-16 max-w-[1600px] mx-auto text-white">
+          <Link href="/work" className="text-[11px] tracking-[0.3em] uppercase text-white/70 hover:text-white mb-6">← Back</Link>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-white/80 mb-3">
             {project.year ?? ""}{project.tags?.[0] ? ` · ${project.tags[0]}` : ""}
           </div>
-          <h1 className="font-display text-5xl md:text-8xl tracking-tight leading-[0.95] max-w-5xl">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-8xl tracking-tight leading-[0.95] max-w-5xl break-words">
             {project.title}
           </h1>
         </div>
@@ -61,19 +61,19 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <div className="md:col-span-4 space-y-8 text-sm">
           {brands.length > 0 && (
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-2">Clients</div>
-              <div className="text-white/90">{brands.map((b) => b.name).join(", ")}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-2">Clients</div>
+              <div className="text-black/90">{brands.map((b) => b.name).join(", ")}</div>
             </div>
           )}
           {project.year && (
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-2">Year</div>
-              <div className="text-white/90">{project.year}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-2">Year</div>
+              <div className="text-black/90">{project.year}</div>
             </div>
           )}
           {project.tags.length > 0 && (
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-2">Tags</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-2">Tags</div>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((t) => (
                   <span key={t} className="text-[10px] tracking-[0.2em] uppercase border hairline px-2 py-1">{t}</span>
@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         </div>
         <Reveal className="md:col-span-8">
           {project.description && (
-            <p className="font-display text-2xl md:text-4xl leading-[1.2] tracking-tight whitespace-pre-line">
+            <p className="font-display text-xl sm:text-2xl md:text-4xl leading-[1.2] tracking-tight whitespace-pre-line">
               {project.description}
             </p>
           )}
@@ -108,7 +108,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       {/* Gallery */}
       {images.length > 0 && (
         <section className="mx-auto max-w-[1600px] px-6 md:px-10 pb-24">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-8">Gallery</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-black/50 mb-8">Gallery</div>
           <Lightbox items={images.map((m) => ({ url: m.url, type: "image", caption: m.caption, alt: m.alt }))} />
         </section>
       )}

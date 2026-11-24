@@ -4,7 +4,7 @@ export default function YouTubeEmbed({ url, title }: { url: string; title?: stri
   const src = youtubeEmbed(url);
   if (!src) return null;
   return (
-    <div className="relative aspect-video w-full bg-black">
+    <div className="relative aspect-video w-full bg-white">
       <iframe
         src={src}
         title={title || "YouTube video"}

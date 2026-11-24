@@ -29,7 +29,7 @@ export default function ProjectGrid({
         <div className="flex flex-wrap gap-x-6 gap-y-3 mb-10 md:mb-14 text-xs tracking-[0.2em] uppercase">
           <button
             onClick={() => setActive("all")}
-            className={cn("text-white/50 hover:text-white transition", active === "all" && "text-white")}
+            className={cn("text-black/50 hover:text-black transition", active === "all" && "text-black")}
           >
             All
           </button>
@@ -37,7 +37,7 @@ export default function ProjectGrid({
             <button
               key={c.id}
               onClick={() => setActive(c.slug)}
-              className={cn("text-white/50 hover:text-white transition", active === c.slug && "text-white")}
+              className={cn("text-black/50 hover:text-black transition", active === c.slug && "text-black")}
             >
               {c.name}
             </button>
@@ -52,7 +52,7 @@ export default function ProjectGrid({
           className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[minmax(220px,auto)]"
         >
           {filtered.length === 0 && (
-            <div className="col-span-full py-24 text-center text-white/40 text-sm tracking-[0.2em] uppercase">
+            <div className="col-span-full py-24 text-center text-black/40 text-sm tracking-[0.2em] uppercase">
               No projects yet — check back soon.
             </div>
           )}
@@ -76,7 +76,7 @@ export default function ProjectGrid({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-                className={cn("group relative overflow-hidden bg-neutral-900 min-h-[220px]", span)}
+                className={cn("group relative overflow-hidden bg-neutral-100 min-h-[220px]", span)}
               >
                 <Link href={`/projects/${p.slug}`} className="block h-full w-full">
                   {img ? (
@@ -92,7 +92,7 @@ export default function ProjectGrid({
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-95 transition" />
                   <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                    <div className="text-[10px] tracking-[0.25em] uppercase text-white/70">
+                    <div className="text-[10px] tracking-[0.25em] uppercase text-black/70">
                       {p.year ?? ""}{p.tags?.[0] ? ` · ${p.tags[0]}` : ""}
                     </div>
                     <div className="mt-2 font-display text-2xl md:text-4xl leading-none tracking-tight">

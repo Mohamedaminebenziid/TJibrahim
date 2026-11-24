@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { PageHeader, Btn, Field, Checkbox } from "@/components/admin/Toolbar";
+import FileInput from "@/components/admin/FileInput";
 import { updateProject, deleteProject, addProjectMedia, deleteProjectMedia } from "../actions";
 import type { Brand, Category, Project, ProjectMedia } from "@/lib/types";
 
@@ -53,7 +54,7 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
             <Field label="Project date" name="project_date" type="date" defaultValue={p.project_date ?? ""} />
           </div>
           <details className="border hairline">
-            <summary className="px-4 py-3 cursor-pointer text-[11px] tracking-[0.25em] uppercase text-white/70">SEO</summary>
+            <summary className="px-4 py-3 cursor-pointer text-[11px] tracking-[0.25em] uppercase text-black/70">SEO</summary>
             <div className="p-4 space-y-4">
               <Field label="SEO title" name="seo_title" defaultValue={p.seo_title ?? ""} />
               <Field label="SEO description" name="seo_description" defaultValue={p.seo_description ?? ""} textarea rows={3} />
@@ -64,7 +65,7 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
         <aside className="space-y-5">
           <div className="border hairline p-5 space-y-4">
             <div>
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Status</div>
+              <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Status</div>
               <div className="flex flex-col gap-2">
                 <Checkbox label="Published" name="published" defaultChecked={p.published} />
                 <Checkbox label="Featured on homepage" name="featured" defaultChecked={p.featured} />
@@ -72,19 +73,19 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
             </div>
             <Field label="Sort order" name="sort_order" type="number" defaultValue={p.sort_order} />
             <div>
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Category</div>
-              <select name="category_id" defaultValue={p.category_id ?? ""} className="w-full bg-black border hairline focus:border-white outline-none px-3 py-2 text-sm">
+              <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Category</div>
+              <select name="category_id" defaultValue={p.category_id ?? ""} className="w-full bg-white border hairline focus:border-black outline-none px-3 py-2 text-sm">
                 <option value="">— None —</option>
                 {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </div>
             <div>
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Brands</div>
+              <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Brands</div>
               <div className="space-y-1.5 max-h-48 overflow-auto pr-1">
-                {allBrands.length === 0 && <div className="text-[11px] text-white/40">No brands yet.</div>}
+                {allBrands.length === 0 && <div className="text-[11px] text-black/40">No brands yet.</div>}
                 {allBrands.map((b) => (
-                  <label key={b.id} className="flex items-center gap-2 text-sm text-white/80">
-                    <input type="checkbox" name="brand_ids" value={b.id} defaultChecked={linkedBrands.has(b.id)} className="accent-white" />
+                  <label key={b.id} className="flex items-center gap-2 text-sm text-black/80">
+                    <input type="checkbox" name="brand_ids" value={b.id} defaultChecked={linkedBrands.has(b.id)} className="accent-black" />
                     {b.name}
                   </label>
                 ))}
@@ -93,13 +94,13 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
           </div>
 
           <div className="border hairline p-5">
-            <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Cover image</div>
+            <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Cover image</div>
             {p.cover_url && (
-              <div className="relative aspect-video bg-neutral-900 mb-3">
+              <div className="relative aspect-video bg-neutral-100 mb-3">
                 <Image src={p.cover_url} alt="" fill className="object-cover" sizes="400px" />
               </div>
             )}
-            <input type="file" name="cover_file" accept="image/*" className="text-xs text-white/70" />
+            <FileInput name="cover_file" accept="image/*" multiple={false} label="Choose cover image" />
           </div>
 
           <Btn type="submit" variant="solid">Save project</Btn>
@@ -108,22 +109,22 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
 
       {/* Gallery management */}
       <section className="mt-16">
-        <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">Gallery & media</h2>
+        <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">Gallery & media</h2>
         <form action={addProjectMedia} encType="multipart/form-data" className="border hairline p-5 mb-6 flex flex-wrap items-end gap-4">
           <input type="hidden" name="project_id" value={p.id} />
           <div className="flex-1">
-            <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Add photos / videos</div>
-            <input type="file" name="files" accept="image/*,video/*" multiple className="text-xs text-white/70" />
+            <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Add photos / videos</div>
+            <FileInput name="files" accept="image/*,video/*" multiple label="Choose files" />
           </div>
-          <Btn type="submit">Upload</Btn>
+          <Btn type="submit" variant="solid">Upload to gallery</Btn>
         </form>
         {items.length === 0 ? (
-          <div className="py-12 text-center text-white/40 text-sm tracking-[0.2em] uppercase border hairline">No gallery media yet.</div>
+          <div className="py-12 text-center text-black/40 text-sm tracking-[0.2em] uppercase border hairline">No gallery media yet.</div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {items.map((m) => (
               <div key={m.id} className="border hairline">
-                <div className="relative aspect-square bg-neutral-900">
+                <div className="relative aspect-square bg-neutral-100">
                   {m.type === "video" ? (
                     <video src={m.url} className="h-full w-full object-cover" muted />
                   ) : (
@@ -145,7 +146,7 @@ export default async function ProjectEdit({ params }: PageProps<"/admin/projects
         <form action={deleteProject}>
           <input type="hidden" name="id" value={p.id} />
           <Btn type="submit" variant="danger">Delete this project</Btn>
-          <p className="mt-2 text-[10px] text-white/40">This also deletes gallery entries. Cannot be undone.</p>
+          <p className="mt-2 text-[10px] text-black/40">This also deletes gallery entries. Cannot be undone.</p>
         </form>
       </section>
     </>

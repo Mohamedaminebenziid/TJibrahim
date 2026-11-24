@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #f5f5f5;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
 }
 
 @theme inline {
@@ -24,11 +24,15 @@ body {
 }
 
 ::selection {
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
-/* Subtle film grain overlay used on hero sections */
+/* Hairline divider that works on both light and dark surfaces */
+.hairline { border-color: rgba(0, 0, 0, 0.12); }
+.hairline-dark { border-color: rgba(255, 255, 255, 0.14); }
+
+/* Subtle film grain overlay used on hero sections (dark) */
 .grain::after {
   content: "";
   position: absolute;
@@ -38,8 +42,6 @@ body {
   mix-blend-mode: overlay;
   opacity: 0.08;
 }
-
-.hairline { border-color: rgba(255,255,255,0.12); }
 
 .marquee {
   mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);

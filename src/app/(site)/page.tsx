@@ -27,21 +27,21 @@ export default async function HomePage() {
       {/* About preview */}
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-36">
         <div className="grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-4 text-[11px] tracking-[0.3em] uppercase text-white/50">
+          <div className="md:col-span-4 text-[11px] tracking-[0.3em] uppercase text-black/50">
             {content.about.heading}
           </div>
           <Reveal className="md:col-span-8">
-            <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+            <p className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
               {content.about.bio}
             </p>
-            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-xs tracking-[0.2em] uppercase text-white/60">
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-xs tracking-[0.2em] uppercase text-black/60">
               {content.about.specialties.map((s) => (
                 <span key={s}>{s}</span>
               ))}
             </div>
             <Link
               href="/about"
-              className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase border-b hairline hover:border-white pb-1"
+              className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase border-b hairline hover:border-black pb-1"
             >
               More about me <span>→</span>
             </Link>
@@ -53,18 +53,18 @@ export default async function HomePage() {
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 pb-24 md:pb-36">
         <Reveal className="flex items-end justify-between mb-10 md:mb-14">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-3">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-black/50 mb-3">
               {content.work.heading}
             </div>
-            <h2 className="font-display text-4xl md:text-6xl tracking-tight">Featured projects</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl tracking-tight">Featured projects</h2>
           </div>
-          <Link href="/work" className="hidden md:inline-block text-xs tracking-[0.25em] uppercase border-b hairline hover:border-white pb-1">
+          <Link href="/work" className="hidden md:inline-block text-xs tracking-[0.25em] uppercase border-b hairline hover:border-black pb-1">
             All work →
           </Link>
         </Reveal>
 
         {projects.length === 0 ? (
-          <div className="py-24 text-center text-white/40 text-sm tracking-[0.2em] uppercase border hairline">
+          <div className="py-24 text-center text-black/40 text-sm tracking-[0.2em] uppercase border hairline">
             New projects coming soon.
           </div>
         ) : (
@@ -74,7 +74,7 @@ export default async function HomePage() {
               return (
                 <Reveal key={p.id} delay={i * 0.05}>
                   <Link href={`/projects/${p.slug}`} className="group block">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
                       {img ? (
                         <Image
                           src={img}
@@ -84,12 +84,12 @@ export default async function HomePage() {
                           className="object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1200ms]"
                         />
                       ) : (
-                        <div className="h-full w-full bg-neutral-800" />
+                        <div className="h-full w-full bg-neutral-200" />
                       )}
                     </div>
                     <div className="mt-4 flex items-baseline justify-between">
-                      <h3 className="font-display text-2xl md:text-3xl tracking-tight">{p.title}</h3>
-                      <span className="text-[10px] tracking-[0.25em] uppercase text-white/50">{p.year ?? ""}</span>
+                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl tracking-tight">{p.title}</h3>
+                      <span className="text-[10px] tracking-[0.25em] uppercase text-black/50">{p.year ?? ""}</span>
                     </div>
                   </Link>
                 </Reveal>
@@ -102,10 +102,10 @@ export default async function HomePage() {
       {/* Categories strip */}
       {categories.length > 0 && (
         <section className="border-y hairline">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-10 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs tracking-[0.3em] uppercase text-white/70">
-            <span className="text-white/40">Explore</span>
+          <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-10 flex flex-wrap items-center gap-x-10 gap-y-4 text-xs tracking-[0.3em] uppercase text-black/70">
+            <span className="text-black/40">Explore</span>
             {categories.map((c) => (
-              <Link key={c.id} href={`/work/${c.slug}`} className="hover:text-white">
+              <Link key={c.id} href={`/work/${c.slug}`} className="hover:text-black">
                 {c.name}
               </Link>
             ))}
@@ -117,18 +117,18 @@ export default async function HomePage() {
       {brands.length > 0 && (
         <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-36">
           <Reveal>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-3">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-black/50 mb-3">
               {content.brands.heading}
             </div>
-            <h2 className="font-display text-4xl md:text-6xl tracking-tight">{content.brands.intro}</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl tracking-tight">{content.brands.intro}</h2>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 items-center">
             {brands.map((b) => (
               <div key={b.id} className="relative h-16 opacity-60 hover:opacity-100 transition">
                 {b.logo_url ? (
-                  <Image src={b.logo_url} alt={b.name} fill className="object-contain invert brightness-200" />
+                  <Image src={b.logo_url} alt={b.name} fill className="object-contain grayscale" />
                 ) : (
-                  <div className="text-center text-white/80 text-sm">{b.name}</div>
+                  <div className="text-center text-black/80 text-sm">{b.name}</div>
                 )}
               </div>
             ))}
@@ -139,12 +139,12 @@ export default async function HomePage() {
       {/* Contact teaser */}
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-36 border-t hairline">
         <Reveal>
-          <div className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-4">Contact</div>
-          <h2 className="font-display text-5xl md:text-8xl tracking-tight leading-[0.95]">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-black/50 mb-4">Contact</div>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-8xl tracking-tight leading-[0.95] break-words">
             {content.contact.heading}
           </h2>
-          <p className="mt-6 max-w-xl text-white/70">{content.contact.intro}</p>
-          <Link href="/contact" className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase border-b hairline hover:border-white pb-1">
+          <p className="mt-6 max-w-xl text-black/70">{content.contact.intro}</p>
+          <Link href="/contact" className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase border-b hairline hover:border-black pb-1">
             Get in touch →
           </Link>
         </Reveal>

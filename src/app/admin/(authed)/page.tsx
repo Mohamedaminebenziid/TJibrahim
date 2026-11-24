@@ -38,15 +38,15 @@ export default async function AdminOverview() {
       />
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         {stats.map((s) => (
-          <Link key={s.label} href={s.href} className="border hairline p-6 hover:bg-white/5 transition">
+          <Link key={s.label} href={s.href} className="border hairline p-6 hover:bg-black/5 transition">
             <div className="font-display text-5xl tracking-tight">{s.value}</div>
-            <div className="mt-2 text-[10px] tracking-[0.25em] uppercase text-white/50">{s.label}</div>
+            <div className="mt-2 text-[10px] tracking-[0.25em] uppercase text-black/50">{s.label}</div>
           </Link>
         ))}
       </div>
 
       <div className="mt-14">
-        <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">Quick actions</h2>
+        <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">Quick actions</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           <Btn href="/admin/projects/new">New project</Btn>
           <Btn href="/admin/categories">Manage categories</Btn>

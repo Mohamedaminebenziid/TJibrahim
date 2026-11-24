@@ -33,14 +33,14 @@ export default async function ContentPage() {
             <Field label="Biography" name="bio" defaultValue={c.about.bio} textarea rows={6} />
             <Field label="Specialties (comma separated)" name="specialties" defaultValue={c.about.specialties.join(", ")} />
             <div>
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 mb-2">Stats</div>
+              <div className="text-[10px] tracking-[0.25em] uppercase text-black/50 mb-2">Stats</div>
               <div className="grid gap-3">
                 {[0, 1, 2, 3].map((i) => {
                   const s = c.about.stats[i];
                   return (
                     <div key={i} className="grid grid-cols-2 gap-3">
-                      <input name="stat_value" defaultValue={s?.value ?? ""} placeholder="Value (e.g. 6+)" className="bg-transparent border hairline focus:border-white outline-none px-3 py-2 text-sm" />
-                      <input name="stat_label" defaultValue={s?.label ?? ""} placeholder="Label (e.g. Years)" className="bg-transparent border hairline focus:border-white outline-none px-3 py-2 text-sm" />
+                      <input name="stat_value" defaultValue={s?.value ?? ""} placeholder="Value (e.g. 6+)" className="bg-transparent border hairline focus:border-black outline-none px-3 py-2 text-sm" />
+                      <input name="stat_label" defaultValue={s?.label ?? ""} placeholder="Label (e.g. Years)" className="bg-transparent border hairline focus:border-black outline-none px-3 py-2 text-sm" />
                     </div>
                   );
                 })}
@@ -83,7 +83,7 @@ export default async function ContentPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">{title}</h2>
+      <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">{title}</h2>
       {children}
     </section>
   );

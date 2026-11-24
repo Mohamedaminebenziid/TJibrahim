@@ -13,7 +13,7 @@ export default async function CategoriesPage() {
       <PageHeader title="Categories" subtitle="Create portfolio categories that appear in navigation and filters." />
       <div className="grid lg:grid-cols-2 gap-10">
         <section>
-          <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">New category</h2>
+          <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">New category</h2>
           <form action={upsertCategory} className="space-y-4 border hairline p-6">
             <Field label="Name" name="name" required />
             <Field label="Slug (optional)" name="slug" hint="Lowercase, dashes. Auto-generated if empty." />
@@ -28,17 +28,17 @@ export default async function CategoriesPage() {
         </section>
 
         <section>
-          <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">All categories ({items.length})</h2>
+          <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">All categories ({items.length})</h2>
           <div className="space-y-3">
-            {items.length === 0 && <div className="text-sm text-white/40 border hairline p-6">No categories yet.</div>}
+            {items.length === 0 && <div className="text-sm text-black/40 border hairline p-6">No categories yet.</div>}
             {items.map((c) => (
               <details key={c.id} className="border hairline">
                 <summary className="flex items-center justify-between px-4 py-3 cursor-pointer">
                   <div>
                     <span className="font-display text-xl tracking-tight">{c.name}</span>
-                    <span className="ml-3 text-[10px] tracking-[0.25em] uppercase text-white/40">/{c.slug}</span>
+                    <span className="ml-3 text-[10px] tracking-[0.25em] uppercase text-black/40">/{c.slug}</span>
                   </div>
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-white/50">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-black/50">
                     {c.published ? "Published" : "Draft"}
                   </span>
                 </summary>
@@ -59,7 +59,7 @@ export default async function CategoriesPage() {
                 <form action={deleteCategory} className="p-4 border-t hairline">
                   <input type="hidden" name="id" value={c.id} />
                   <Btn type="submit" variant="danger">Delete category</Btn>
-                  <p className="mt-2 text-[10px] text-white/40">Projects in this category will be kept but unassigned.</p>
+                  <p className="mt-2 text-[10px] text-black/40">Projects in this category will be kept but unassigned.</p>
                 </form>
               </details>
             ))}

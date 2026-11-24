@@ -11,11 +11,11 @@ export default async function ContactPage() {
   return (
     <section className="mx-auto max-w-[1600px] px-6 md:px-10 pt-32 md:pt-40 pb-24">
       <Reveal>
-        <div className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-4">Contact</div>
-        <h1 className="font-display text-6xl md:text-[10rem] leading-[0.9] tracking-tight">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-black/50 mb-4">Contact</div>
+        <h1 className="font-display text-5xl sm:text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.9] tracking-tight break-words">
           {contact.heading}
         </h1>
-        <p className="mt-8 max-w-xl text-white/70 text-lg">{contact.intro}</p>
+        <p className="mt-8 max-w-xl text-black/70 text-lg">{contact.intro}</p>
       </Reveal>
 
       <div className="mt-16 grid md:grid-cols-2 gap-10">
@@ -24,11 +24,11 @@ export default async function ContactPage() {
             href={wa}
             target="_blank"
             rel="noopener noreferrer"
-            className="group border hairline p-8 md:p-10 flex items-center justify-between hover:bg-white hover:text-black transition-colors"
+            className="group border hairline p-8 md:p-10 flex items-center justify-between hover:bg-black hover:text-white transition-colors"
           >
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 group-hover:text-black/50 mb-2">WhatsApp</div>
-              <div className="font-display text-3xl md:text-5xl tracking-tight">Message on WhatsApp</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 group-hover:text-white/60 mb-2">WhatsApp</div>
+              <div className="font-display text-2xl sm:text-3xl md:text-5xl tracking-tight break-words">Message on WhatsApp</div>
             </div>
             <span className="text-2xl">→</span>
           </a>
@@ -36,11 +36,11 @@ export default async function ContactPage() {
         {contact.email && (
           <a
             href={`mailto:${contact.email}`}
-            className="group border hairline p-8 md:p-10 flex items-center justify-between hover:bg-white hover:text-black transition-colors"
+            className="group border hairline p-8 md:p-10 flex items-center justify-between hover:bg-black hover:text-white transition-colors"
           >
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 group-hover:text-black/50 mb-2">Email</div>
-              <div className="font-display text-3xl md:text-5xl tracking-tight break-all">{contact.email}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 group-hover:text-white/60 mb-2">Email</div>
+              <div className="font-display text-2xl sm:text-3xl md:text-5xl tracking-tight break-words break-all">{contact.email}</div>
             </div>
             <span className="text-2xl">→</span>
           </a>
@@ -49,7 +49,7 @@ export default async function ContactPage() {
 
       {socials.length > 0 && (
         <div className="mt-20 border-t hairline pt-10">
-          <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-6">Elsewhere</div>
+          <div className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-6">Elsewhere</div>
           <div className="flex flex-wrap gap-x-10 gap-y-4">
             {socials.map((s) => (
               <a
@@ -57,7 +57,7 @@ export default async function ContactPage() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-display text-3xl md:text-4xl tracking-tight text-white/70 hover:text-white"
+                className="font-display text-3xl md:text-4xl tracking-tight text-black/70 hover:text-black"
               >
                 {s.label || s.platform}
               </a>

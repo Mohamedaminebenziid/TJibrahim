@@ -39,10 +39,15 @@ export default function Nav({ categories }: { categories: Category[] }) {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
-        scrolled ? "bg-black/70 backdrop-blur-md border-b hairline" : "bg-transparent"
+        scrolled ? "bg-white/70 backdrop-blur-md border-b hairline" : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 md:px-10 h-16 md:h-20">
+      <div
+        className={cn(
+          "mx-auto flex max-w-[1600px] items-center justify-between px-6 md:px-10 h-16 md:h-20",
+          !scrolled && "mix-blend-difference text-white"
+        )}
+      >
         <Link href="/" className="font-display text-xl md:text-2xl tracking-tight">
           TJ Ibrahim
         </Link>
@@ -52,8 +57,8 @@ export default function Nav({ categories }: { categories: Category[] }) {
               key={it.href}
               href={it.href}
               className={cn(
-                "relative text-white/70 hover:text-white transition-colors",
-                pathname === it.href && "text-white"
+                "relative opacity-80 hover:opacity-100 transition-opacity",
+                pathname === it.href && "opacity-100"
               )}
             >
               {it.label}
@@ -62,7 +67,7 @@ export default function Nav({ categories }: { categories: Category[] }) {
         </nav>
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-white/90 p-2 -mr-2"
+          className="md:hidden p-2 -mr-2"
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -75,7 +80,7 @@ export default function Nav({ categories }: { categories: Category[] }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden fixed inset-0 top-16 bg-black z-40"
+            className="md:hidden fixed inset-0 top-16 bg-white z-40"
           >
             <nav className="flex flex-col px-6 py-8 gap-4 text-2xl font-display">
               {items.map((it, i) => (

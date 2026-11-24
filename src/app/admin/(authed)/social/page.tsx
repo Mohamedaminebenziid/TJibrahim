@@ -12,7 +12,7 @@ export default async function SocialPage() {
       <PageHeader title="Social Links" subtitle="Instagram and other links shown in the footer and contact page." />
       <div className="grid lg:grid-cols-2 gap-10">
         <section>
-          <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">New link</h2>
+          <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">New link</h2>
           <form action={upsertSocial} className="space-y-4 border hairline p-6">
             <Field label="Platform (e.g. Instagram)" name="platform" required />
             <Field label="URL" name="url" type="url" required />
@@ -23,17 +23,17 @@ export default async function SocialPage() {
           </form>
         </section>
         <section>
-          <h2 className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-4">All links ({items.length})</h2>
+          <h2 className="text-[10px] tracking-[0.3em] uppercase text-black/50 mb-4">All links ({items.length})</h2>
           <div className="space-y-3">
-            {items.length === 0 && <div className="text-sm text-white/40 border hairline p-6">No links yet.</div>}
+            {items.length === 0 && <div className="text-sm text-black/40 border hairline p-6">No links yet.</div>}
             {items.map((s) => (
               <details key={s.id} className="border hairline">
                 <summary className="flex items-center justify-between px-4 py-3 cursor-pointer">
                   <div>
                     <div className="font-display text-lg">{s.platform}</div>
-                    <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 truncate max-w-md">{s.url}</div>
+                    <div className="text-[10px] tracking-[0.25em] uppercase text-black/40 truncate max-w-md">{s.url}</div>
                   </div>
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-white/50">{s.published ? "On" : "Off"}</span>
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-black/50">{s.published ? "On" : "Off"}</span>
                 </summary>
                 <form action={upsertSocial} className="p-4 border-t hairline space-y-3">
                   <input type="hidden" name="id" value={s.id} />

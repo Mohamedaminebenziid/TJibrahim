@@ -30,7 +30,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex">
+    <div className="min-h-screen bg-white text-black flex">
       <aside className="w-64 shrink-0 border-r hairline min-h-screen sticky top-0 hidden md:flex md:flex-col">
         <div className="px-6 py-6 border-b hairline">
           <Link href="/admin" className="font-display text-xl tracking-tight">TJ · Admin</Link>
@@ -40,7 +40,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <Link
               key={n.href}
               href={n.href}
-              className="flex items-center gap-3 px-6 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5"
+              className="flex items-center gap-3 px-6 py-2.5 text-sm text-black/70 hover:text-black hover:bg-black/5"
             >
               <n.icon size={16} />
               {n.label}
@@ -48,15 +48,15 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           ))}
         </nav>
         <form action={logout} className="p-4 border-t hairline">
-          <button className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-white/60 hover:text-white">
+          <button className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-black/60 hover:text-black">
             <LogOut size={14} /> Sign out
           </button>
         </form>
       </aside>
       <div className="flex-1 min-w-0">
-        <div className="md:hidden sticky top-0 z-10 bg-black border-b hairline px-4 py-3 flex items-center gap-4 overflow-x-auto">
+        <div className="md:hidden sticky top-0 z-10 bg-white border-b hairline px-4 py-3 flex items-center gap-4 overflow-x-auto">
           {nav.map((n) => (
-            <Link key={n.href} href={n.href} className="text-[10px] tracking-[0.2em] uppercase text-white/60 hover:text-white whitespace-nowrap">
+            <Link key={n.href} href={n.href} className="text-[10px] tracking-[0.2em] uppercase text-black/60 hover:text-black whitespace-nowrap">
               {n.label}
             </Link>
           ))}
